@@ -115,7 +115,7 @@ describe("Calculator", () => {
     cy.get('#number0').click();
     cy.get('.display').should('contain', '0')
   })
-
+ // created an if conditional using truthy falsy on the number, with the second function only being called if number is falsy, which 0 is, the calculator now returns 0 when dividing by 0
 
 
 })
