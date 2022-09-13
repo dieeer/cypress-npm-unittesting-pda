@@ -134,15 +134,19 @@ describe('Calculator', () => {
     const button4 = container.getByTestId('number4')
     const button9 = container.getByTestId('number9')
     const button2 = container.getByTestId('number2')
+    
     const button_add = container.getByTestId('operator-add')
-    fireEvent.click(button4)
-    fireEvent.click(button_add)
-    fireEvent.click(button9)
-    fireEvent.click(button_equals)
-    fireEvent.click(button9)
+    fireEvent.click(button4);
+    fireEvent.click(button_add); 
+    fireEvent.click(button4);
+    fireEvent.click(button_add);
+    fireEvent.click(button4);
+    // 4 is in the field but not entered and cleared, so total is 8
     fireEvent.click(clear);
-
-    expect(runningTotal.textContent).toEqual('13')
+    fireEvent.click(button4);
+    fireEvent.click(button_add);
+// still has 8 in memory despite being cleared, so 8+4 = 12
+    expect(runningTotal.textContent).toEqual('12')
   })
 
 })
