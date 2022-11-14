@@ -136,7 +136,7 @@ describe("Calculator", () => {
 
   it('should show a positive number when the first number is positive', () => {
     cy.get('#number4').click();
-    cy.get('#operator-add').click();
+    cy.get('#operator_add').click();
     cy.get('#number9').click();
     cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '13')
