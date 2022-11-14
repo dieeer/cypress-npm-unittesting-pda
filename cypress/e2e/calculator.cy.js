@@ -54,7 +54,7 @@ describe("Calculator", () => {
 
   // Is the output as expected for a range of numbers (for example, positive, negative, decimals and very large numbers)?
 
-  it('should have the output expected for a range of numbers e.g. -/+, decimal, very large numbers', () => {
+  it('should have the output expected for a range of very large numbers', () => {
     // negative range test
     cy.get('#number5').click();
     cy.get('#operator-subtract').click();
@@ -117,5 +117,29 @@ describe("Calculator", () => {
   })
  // created an if conditional using truthy falsy on the number, with the second function only being called if number is falsy, which 0 is, the calculator now returns 0 when dividing by 0
 
+// testing for negative numbers
+  it('should return a negative number when the first number is negative', () => {
+    cy.get('#number4').click();
+    cy.get('#operator-subtract').click();
+    cy.get('#number9').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', '-5')
+  })
+
+  it('should return a decimal number when the first number is decimal', () => {
+    cy.get('#number4').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number2').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', '2')
+  })
+
+  it('should show a positive number when the first number is positive', () => {
+    cy.get('#number4').click();
+    cy.get('#operator-add').click();
+    cy.get('#number9').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', '13')
+  })
 
 })
