@@ -126,12 +126,12 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '-5')
   })
 
-  it('should return a decimal number when the first number is decimal', () => {
+  it('should return a decimal number when both numbers are decimals', () => {
     cy.get('#number4').click();
     cy.get('#operator-divide').click();
-    cy.get('#number2').click();
+    cy.get('#number9').click();
     cy.get('#operator-equals').click();
-    cy.get('.display').should('contain', '2')
+    cy.get('.display').should('contain', '0.4444444444444444')
   })
 
   it('should show a positive number when the first number is positive', () => {
