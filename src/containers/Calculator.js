@@ -92,13 +92,18 @@ function App() {
     setCalculatedTotal(calculatedNumber);
   }
 
-  // created an if conditional using truthy falsy on the number, with the second function only being called if number is falsy, which 0 is, the calculator now returns 0 when dividing by 0
+  // error if dividing by 0
 
   const divide = (number) => {
-    let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
-    {number ? setRunningTotal(calculatedNumber) : setRunningTotal(0)};
-    setCalculatedTotal(calculatedNumber);
+    if (number === 0) {
+      setRunningTotal("Error");
+    } else {
+      let calculatedNumber = parseFloat(previousTotal) / parseFloat(number);
+      setRunningTotal(calculatedNumber);
+      setCalculatedTotal(calculatedNumber);
+    }
   }
+
 
 
   return (

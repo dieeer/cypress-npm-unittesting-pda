@@ -108,12 +108,13 @@ describe("Calculator", () => {
     cy.get('#operator-multiply').click();
     cy.get('.display').should('contain', 'Infinity')
   });
-  it('should return 0 when dividing by 0', () => {
+  it('should return error when dividing by 0', () => {
     cy.get('#number4').click();
     cy.get('#number4').click();
     cy.get('#operator-divide').click();
     cy.get('#number0').click();
-    cy.get('.display').should('contain', '0')
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', 'Error')
   })
  // created an if conditional using truthy falsy on the number, with the second function only being called if number is falsy, which 0 is, the calculator now returns 0 when dividing by 0
 
